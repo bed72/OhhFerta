@@ -1,0 +1,116 @@
+[versions]
+agp = "8.2.0"
+hilt = "2.49"
+splash = "1.0.1"
+kotlin = "1.9.20"
+detekt = "1.23.4"
+compiler = "1.5.5"
+material3 = "1.1.2"
+navigation = "2.7.6"
+ksp = "1.9.21-1.0.16"
+
+# Ktx
+core-ktx = "1.12.0"
+lifecycle-ktx = "2.6.2"
+
+# Compose
+ui-compose = "1.5.4"
+hilt-compose = "1.1.0"
+activity-compose = "1.8.2"
+bom-compose = "2023.10.01"
+
+# Test
+junit = "4.13.2"
+ext-junit = "1.1.5"
+
+espresso = "3.5.1"
+test-manifest = "1.5.4"
+
+[libraries]
+splash = { group = "androidx.core", name = "core-splashscreen", version.ref = "splash" }
+navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
+
+# Hilt
+hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt"}
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt"}
+hilt-navigation = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hilt-compose" }
+
+# Ktx
+core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+lifecycle-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-ktx" }
+
+# Compose
+ui = { group = "androidx.compose.ui", name = "ui", version.ref = "ui-compose" }
+ui-compose = { group = "androidx.compose", name = "compose-bom", version.ref = "bom-compose" }
+ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics", version.ref = "ui-compose" }
+ui-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "ui-compose" }
+ui-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "material3" }
+ui-animation = { group = "androidx.compose.animation", name = "animation", version.ref = "ui-compose" }
+ui-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "ui-compose" }
+ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "ui-compose" }
+ui-icons = { group = "androidx.compose.material", name = "material-icons-extended", version.ref = "ui-compose" }
+ui-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
+
+# Others
+detekt = { group = "io.gitlab.arturbosch.detekt", name = "detekt-formatting", version.ref = "detekt" }
+
+# Test
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+
+# Android Test
+ui-junit = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "ext-junit" }
+espresso = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso" }
+
+# Debug
+ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+ui-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest", version.ref = "test-manifest" }
+
+[plugins]
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt"}
+library-android = { id = "com.android.library", version.ref = "agp" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+application-android = { id = "com.android.application", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+
+[bundles]
+others = [
+    "splash",
+    "navigation",
+]
+
+hilt = [
+    "hilt",
+    "hilt-navigation"
+]
+
+ktx = [
+    "core-ktx",
+    "lifecycle-ktx"
+]
+
+compose = [
+    "ui",
+    "ui-icons",
+    "ui-runtime",
+    "ui-tooling",
+    "ui-graphics",
+    "ui-material3",
+    "ui-animation",
+    "ui-foundation",
+    "ui-tooling-preview",
+    "ui-activity-compose"
+]
+
+android-test = [
+    "espresso",
+    "ui-junit",
+    "ext-junit"
+]
+
+debug = [
+    "ui-tooling",
+    "ui-manifest"
+]
