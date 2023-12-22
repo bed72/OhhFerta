@@ -2,6 +2,7 @@
 plugins {
     alias(libs.plugins.serialization)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.google.service)
     alias(libs.plugins.application.android)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
@@ -88,6 +89,9 @@ dependencies {
     implementation(libs.bundles.ktx)
     implementation(libs.bundles.others)
     implementation(libs.bundles.compose)
+
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.bundles.firbase)
 
     detektPlugins(libs.detekt)
 

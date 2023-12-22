@@ -22,6 +22,13 @@ hilt-compose = "1.1.0"
 activity-compose = "1.8.2"
 bom-compose = "2023.10.01"
 
+# Firebase
+google-service = "4.4.0"
+
+firebase-bom = "32.7.0"
+firebase-auth = "22.3.0"
+firebase-analytics = "21.5.0"
+
 # Test
 junit = "4.13.2"
 mockito = "5.2.1"
@@ -47,6 +54,11 @@ hilt-navigation = { group = "androidx.hilt", name = "hilt-navigation-compose", v
 # Ktx
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
 lifecycle-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-ktx" }
+
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebase-bom" }
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth-ktx", version.ref = "firebase-auth" }
+firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics-ktx", version.ref = "firebase-analytics" }
+
 
 # Compose
 ui = { group = "androidx.compose.ui", name = "ui", version.ref = "ui-compose" }
@@ -83,11 +95,18 @@ detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 application-android = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+google-service = { id = "com.google.gms.google-services", version.ref = "google-service" }
 serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+
 [bundles]
 others = [
     "splash",
     "navigation",
+]
+
+firbase = [
+    "firebase-auth",
+    "firebase-analytics"
 ]
 
 hilt = [

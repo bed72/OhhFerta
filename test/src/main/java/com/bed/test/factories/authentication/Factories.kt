@@ -1,6 +1,5 @@
 package com.bed.test.factories.authentication
 
-@Suppress("MatchingDeclarationName")
 object Factories {
     const val INITIAL = 0
     const val LOADING = 1
