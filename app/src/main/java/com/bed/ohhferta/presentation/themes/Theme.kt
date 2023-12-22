@@ -2,10 +2,8 @@ package com.bed.ohhferta.presentation.themes
 
 import android.os.Build
 
-import androidx.compose.ui.platform.LocalView
-import androidx.compose.ui.platform.LocalContext
-
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.foundation.isSystemInDarkTheme
 
 import androidx.compose.material3.MaterialTheme
@@ -84,7 +82,6 @@ fun OhhFertaTheme(
     isDynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
-    val view = LocalView.current
     val scheme = schemeColor(isDarkTheme, isDynamicColor)
 
     MaterialTheme(

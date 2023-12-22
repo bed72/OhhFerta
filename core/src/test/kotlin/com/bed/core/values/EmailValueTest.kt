@@ -1,0 +1,31 @@
+package com.bed.core.values
+
+import org.junit.Test
+import org.junit.Assert.assertTrue
+import org.junit.Assert.assertEquals
+
+internal class EmailValueTest {
+    @Test
+    fun `Should return the E-mail when value is valid`() {
+        val email = EmailValue("email@email.com")
+
+        assertTrue(email.isRight())
+        email.map { assertEquals(it(), "email@email.com") }
+    }
+
+    @Test
+    fun `Should return message failure when E-mail is invalid`() {
+        val message = EmailValue("")
+
+        assertTrue(message.isLeft())
+        message.mapLeft { assertEquals(it.getFirstMessage(), MessagesValues.INVALID_EMAIL.message) }
+    }
+
+    @Test
+    fun `Should return message failure when E-mail is invalid with partial validations`() {
+        val message = EmailValue("email.com")
+
+        assertTrue(message.isLeft())
+        message.mapLeft { assertEquals(it.getFirstMessage(), MessagesValues.INVALID_EMAIL.message) }
+    }
+}

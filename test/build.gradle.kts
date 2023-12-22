@@ -1,5 +1,5 @@
 plugins {
-    alias(libs.plugins.org.jetbrains.kotlin.jvm)
+    alias(libs.plugins.kotlin.jvm)
 }
 
 java {
@@ -8,5 +8,7 @@ java {
 }
 
 dependencies {
+    implementation(project(":core"))
+
     api(libs.bundles.test)
 }
