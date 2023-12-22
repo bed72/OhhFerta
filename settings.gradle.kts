@@ -1,6 +1,5 @@
 @file:Suppress("UnstableApiUsage")
 
-
 pluginManagement {
     repositories {
         google()
@@ -18,4 +17,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "OhhFerta"
 include(":app")
+include(":core")
+include(":test")
  

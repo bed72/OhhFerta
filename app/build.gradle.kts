@@ -80,6 +80,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":core"))
+
     ksp(libs.hilt.compiler)
     implementation(libs.bundles.hilt)
 
@@ -89,7 +91,9 @@ dependencies {
 
     detektPlugins(libs.detekt)
 
-    testImplementation(libs.junit)
+    kspAndroidTest(libs.hilt.compiler)
+
+    testImplementation(project(":test"))
 
     androidTestImplementation(libs.bundles.android.test)
     androidTestImplementation(platform(libs.ui.compose))

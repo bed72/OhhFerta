@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.library.android) apply false
     alias(libs.plugins.application.android) apply false
+    alias(libs.plugins.org.jetbrains.kotlin.jvm) apply false
 }
 
 tasks.register("copyGitHooks", Copy::class.java) {
