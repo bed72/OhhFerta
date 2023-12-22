@@ -2,6 +2,7 @@
 inject = "1"
 agp = "8.2.0"
 hilt = "2.49"
+coil = "2.5.0"
 arrow = "1.2.1"
 splash = "1.0.1"
 kotlin = "1.9.20"
@@ -39,6 +40,7 @@ test-manifest = "1.5.4"
 
 [libraries]
 # Others
+coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 arrow = { group = "io.arrow-kt", name = "arrow-core", version.ref = "arrow" }
 splash = { group = "androidx.core", name = "core-splashscreen", version.ref = "splash" }
 javax-inject = { group = "javax.inject", name = "javax.inject", version.ref = "inject" }
@@ -100,6 +102,7 @@ serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref 
 
 [bundles]
 others = [
+    "coil",
     "splash",
     "navigation",
 ]

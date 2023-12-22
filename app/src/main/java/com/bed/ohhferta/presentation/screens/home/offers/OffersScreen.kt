@@ -1,4 +1,4 @@
-package com.bed.ohhferta.presentation.screens.splash
+package com.bed.ohhferta.presentation.screens.home.offers
 
 import androidx.compose.runtime.Composable
 
@@ -16,12 +16,12 @@ import androidx.compose.foundation.layout.wrapContentSize
 import com.bed.ohhferta.presentation.themes.OhhFertaTheme
 
 @Composable
-fun SplashScreen(modifier: Modifier = Modifier) {
+fun OffersScreen(modifier: Modifier = Modifier) {
     Box(
         modifier = modifier.fillMaxSize().wrapContentSize(Alignment.Center)
     ) {
         Text(
-            text = "Splash",
+            text = "Offers",
             style = MaterialTheme.typography.titleLarge
         )
     }
@@ -31,6 +31,6 @@ fun SplashScreen(modifier: Modifier = Modifier) {
 @Composable
 fun GreetingWidgetPreview() {
     OhhFertaTheme {
-        SplashScreen()
+        OffersScreen()
     }
 }

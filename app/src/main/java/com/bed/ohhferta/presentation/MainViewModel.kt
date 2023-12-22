@@ -1,4 +1,4 @@
-package com.bed.ohhferta.presentation.screens.splash
+package com.bed.ohhferta.presentation
 
 import javax.inject.Inject
 
@@ -14,7 +14,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import com.bed.core.usecases.authentication.IsLoggedInUseCase
 
 @HiltViewModel
-class SplashViewModel @Inject constructor(
+class MainViewModel @Inject constructor(
     private val useCase: IsLoggedInUseCase
 ) : ViewModel() {
     private val _state = MutableStateFlow<States>(States.Initial)

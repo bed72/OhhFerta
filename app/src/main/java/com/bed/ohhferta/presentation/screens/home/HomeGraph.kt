@@ -1,10 +1,10 @@
-package com.bed.ohhferta.presentation.screens.home.route
+package com.bed.ohhferta.presentation.screens.home
 
 import androidx.navigation.navigation
 import androidx.navigation.NavGraphBuilder
-import androidx.navigation.NavHostController
 
 import com.bed.ohhferta.presentation.screens.routes.Routes
+import com.bed.ohhferta.presentation.screens.home.offers.offersScreen
 
 fun NavGraphBuilder.homeGraph() {
     navigation(
@@ -13,8 +13,4 @@ fun NavGraphBuilder.homeGraph() {
     ) {
         offersScreen()
     }
-}
-
-fun NavHostController.navigateToHomeGraph() {
-    navigate(Routes.Home.GRAPH)
 }

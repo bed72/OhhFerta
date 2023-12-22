@@ -1,4 +1,4 @@
-package com.bed.ohhferta.presentation.screens.splash
+package com.bed.ohhferta.presentation
 
 import org.junit.Rule
 import org.junit.Test
@@ -25,7 +25,7 @@ import com.bed.core.usecases.authentication.IsLoggedInUseCase
 
 @RunWith(MockitoJUnitRunner::class)
 @OptIn(ExperimentalCoroutinesApi::class)
-internal class SplashViewModelTest {
+internal class MainViewModelTest {
 
     @get:Rule
     val rule = MainCoroutineRule()
@@ -33,14 +33,14 @@ internal class SplashViewModelTest {
     @Mock
     private lateinit var useCase: IsLoggedInUseCase
 
-    private lateinit var viewModel: SplashViewModel
+    private lateinit var viewModel: MainViewModel
 
-    private lateinit var states: MutableList<SplashViewModel.States>
+    private lateinit var states: MutableList<MainViewModel.States>
 
     @Before
     fun setUp() {
         states = mutableListOf()
-        viewModel = SplashViewModel(useCase)
+        viewModel = MainViewModel(useCase)
     }
 
     @Test
@@ -51,8 +51,8 @@ internal class SplashViewModelTest {
 
         viewModel.isLoggedIn()
 
-        assertEquals(states[Factories.States.INITIAL], SplashViewModel.States.Initial)
-        states[IS_LOGGED].let { assertTrue(it is SplashViewModel.States.IsLoggedIn && it.isLogged) }
+        assertEquals(states[Factories.States.INITIAL], MainViewModel.States.Initial)
+        states[IS_LOGGED].let { assertTrue(it is MainViewModel.States.IsLoggedIn && it.isLogged) }
 
         job.cancel()
     }
@@ -65,8 +65,8 @@ internal class SplashViewModelTest {
 
         viewModel.isLoggedIn()
 
-        assertEquals(states[Factories.States.INITIAL], SplashViewModel.States.Initial)
-        states[IS_LOGGED].let { assertFalse(it is SplashViewModel.States.IsLoggedIn && it.isLogged) }
+        assertEquals(states[Factories.States.INITIAL], MainViewModel.States.Initial)
+        states[IS_LOGGED].let { assertFalse(it is MainViewModel.States.IsLoggedIn && it.isLogged) }
 
         job.cancel()
     }
@@ -78,7 +78,7 @@ internal class SplashViewModelTest {
         viewModel.isLoggedIn()
 
         viewModel.state.value.let {
-            it as SplashViewModel.States.IsLoggedIn
+            it as MainViewModel.States.IsLoggedIn
             assertFalse(it.isLogged)
         }
     }
@@ -90,7 +90,7 @@ internal class SplashViewModelTest {
         viewModel.isLoggedIn()
 
         viewModel.state.value.let {
-            it as SplashViewModel.States.IsLoggedIn
+            it as MainViewModel.States.IsLoggedIn
             assertTrue(it.isLogged)
         }
     }
