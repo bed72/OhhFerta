@@ -1,21 +1,13 @@
 package com.bed.ohhferta.presentation.themes
 
 import android.os.Build
-import android.view.View
-import android.app.Activity
 
-import androidx.core.view.WindowCompat
-
-import androidx.compose.foundation.isSystemInDarkTheme
-
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.SideEffect
-
-import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.platform.LocalContext
 
-import androidx.compose.material3.ColorScheme
+import androidx.compose.runtime.Composable
+import androidx.compose.foundation.isSystemInDarkTheme
+
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
@@ -94,7 +86,6 @@ fun OhhFertaTheme(
 ) {
     val view = LocalView.current
     val scheme = schemeColor(isDarkTheme, isDynamicColor)
-    if (view.isInEditMode.not()) ThemeColor(view, scheme, isDarkTheme)
 
     MaterialTheme(
         content = content,
@@ -112,18 +103,3 @@ private fun schemeColor(isDarkTheme: Boolean, isDynamicColor: Boolean) =
         isDarkTheme -> darkScheme
         else -> lightScheme
     }
-
-@Composable
-private fun ThemeColor(view: View, scheme: ColorScheme, isDarkTheme: Boolean) {
-    SideEffect {
-        (view.context as Activity).window.apply {
-            statusBarColor = scheme.background.toArgb()
-            navigationBarColor = scheme.background.toArgb()
-
-            with(WindowCompat.getInsetsController(this, view)) {
-                isAppearanceLightStatusBars = !isDarkTheme
-                isAppearanceLightNavigationBars = !isDarkTheme
-            }
-        }
-    }
-}

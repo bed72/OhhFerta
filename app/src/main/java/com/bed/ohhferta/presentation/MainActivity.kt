@@ -2,23 +2,28 @@ package com.bed.ohhferta.presentation
 
 import android.os.Bundle
 
+import androidx.activity.SystemBarStyle
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 
 import androidx.compose.ui.Modifier
 import androidx.compose.material3.Surface
+import androidx.compose.ui.graphics.Color
 import androidx.compose.runtime.Composable
 import androidx.compose.foundation.background
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.statusBarsPadding
 
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 
-import com.bed.ohhferta.presentation.navigation.NavigationWidget
+import com.bed.ohhferta.presentation.themes.OhhFertaTheme
 import com.bed.ohhferta.presentation.navigation.home.HomeRoutes
+import com.bed.ohhferta.presentation.navigation.NavigationWidget
 
 class MainActivity : ComponentActivity() {
 
@@ -27,10 +32,17 @@ class MainActivity : ComponentActivity() {
 
         installSplashScreen()
 
-        setContent {
-            val navController = rememberNavController()
+        enableEdgeToEdge(
+            statusBarStyle = SystemBarStyle.auto(Color.Transparent.hashCode(), Color.Transparent.hashCode()),
+            navigationBarStyle = SystemBarStyle.auto(Color.Transparent.hashCode(), Color.Transparent.hashCode())
+        )
 
-            MainWidget(navController = navController)
+        setContent {
+            OhhFertaTheme {
+                val navController = rememberNavController()
+
+                MainWidget(navController = navController)
+            }
         }
     }
 
@@ -39,8 +51,9 @@ class MainActivity : ComponentActivity() {
         Surface(
             color = MaterialTheme.colorScheme.background,
             modifier = modifier
+                .statusBarsPadding()
+                .navigationBarsPadding()
                 .background(MaterialTheme.colorScheme.background)
-                .fillMaxSize(),
         ) {
             NavigationWidget(
                 navController = navController,

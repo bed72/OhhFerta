@@ -4,32 +4,64 @@ import androidx.compose.material3.Typography
 
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 
-// Set of Material typography styles to start with
+import com.bed.ohhferta.R
+
+private val interFamily = FontFamily(
+    Font(R.font.inter, FontWeight.Normal),
+    Font(R.font.inter_medium, FontWeight.Medium),
+    Font(R.font.inter_bold, FontWeight.Bold),
+    Font(R.font.inter_semibold, FontWeight.SemiBold),
+)
+
 val Typography = Typography(
-    bodyLarge = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 16.sp,
-        lineHeight = 24.sp,
-        letterSpacing = 0.5.sp
-    )
-    /* Other default text styles to override
-    titleLarge = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Normal,
-        fontSize = 22.sp,
-        lineHeight = 28.sp,
-        letterSpacing = 0.sp
+    bodySmall = TextStyle(
+        fontSize = 12.sp,
+        lineHeight = 18.sp,
+        fontFamily = interFamily,
+        fontWeight = FontWeight.Companion.W400
     ),
-    labelSmall = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.Medium,
-        fontSize = 11.sp,
-        lineHeight = 16.sp,
-        letterSpacing = 0.5.sp
+    bodyMedium = TextStyle(
+        fontSize = 14.sp,
+        fontFamily = interFamily,
+        fontWeight = FontWeight.Companion.W400
+    ),
+    bodyLarge = TextStyle(
+        fontSize = 16.sp,
+        fontFamily = interFamily,
+        fontWeight = FontWeight.Companion.W400
+    ),
+    headlineSmall = TextStyle(
+        fontSize = 20.sp,
+        fontFamily = interFamily,
+        fontWeight = FontWeight.Companion.W400
+    ),
+    headlineMedium = TextStyle(
+        fontSize = 24.sp,
+        fontFamily = interFamily,
+        fontWeight = FontWeight.Companion.W400
+    ),
+    headlineLarge = TextStyle(
+        fontSize = 28.sp,
+        fontFamily = interFamily,
+        fontWeight = FontWeight.Companion.W400
+    ),
+    titleSmall = TextStyle(
+        fontSize = 28.sp,
+        fontFamily = interFamily,
+        fontWeight = FontWeight.Companion.W400
+    ),
+    titleMedium = TextStyle(
+        fontSize = 32.sp,
+        fontFamily = interFamily,
+        fontWeight = FontWeight.Companion.W400
+    ),
+    titleLarge = TextStyle(
+        fontSize = 36.sp,
+        fontFamily = interFamily,
+        fontWeight = FontWeight.Companion.W400
     )
-    */
 )

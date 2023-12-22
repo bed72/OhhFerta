@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+<!-- My Theme -->
+<style
+    name="Theme.OhhFerta"
+    parent="android:Theme.Material.Light.NoActionBar" >
+    <item name="android:colorBackground">@color/light_background</item>
+</style>
+
+<!-- Splash -->
+<style name="Theme.OhhFerta.SplashScreen" parent="Theme.SplashScreen">
+    <item name="postSplashScreenTheme">@style/Theme.OhhFerta</item>
+    <item name="windowSplashScreenBackground">@color/light_background</item>
+    <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+</style>
+</resources>
