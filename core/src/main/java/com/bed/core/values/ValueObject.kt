@@ -58,11 +58,11 @@ fun <E, A, B, C, D, R> validate(
     f: (A, B, C, D) -> R
 ): EitherNel<E, R> = either { f(a.bind(), b.bind(), c.bind(), d.bind()) }
 
+data class MessageValue(override val message: String) : ApplicationMessageValue(message)
+
 sealed class ApplicationMessageValue(open val message: String?) {
     override fun toString(): String = message ?: "null"
 }
-
-data class MessageValue(override val message: String) : ApplicationMessageValue(message)
 
 @Suppress("MaxLineLength")
 enum class MessagesValues(val message: String) {
