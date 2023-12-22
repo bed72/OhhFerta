@@ -38,9 +38,9 @@ internal class NameFormStateTest {
 
         form.set("Gabriel Ramos", FormState.Type.Name)
 
-        assertEquals(states[Factories.INITIAL], States.Initial)
-        assertEquals(states[Factories.LOADING], States.Loading)
-        assertTrue(states[Factories.SUCCESS] is States.Success)
+        assertEquals(states[Factories.States.INITIAL], States.Initial)
+        assertEquals(states[Factories.States.LOADING], States.Loading)
+        assertTrue(states[Factories.States.SUCCESS] is States.Success)
         form.state.value.let {
             it as States.Success
             assertEquals(it.data, "Gabriel Ramos")
@@ -55,9 +55,9 @@ internal class NameFormStateTest {
 
         form.set("", FormState.Type.Name)
 
-        assertEquals(states[Factories.INITIAL], States.Initial)
-        assertEquals(states[Factories.LOADING], States.Loading)
-        assertTrue(states[Factories.FAILURE] is States.Failure)
+        assertEquals(states[Factories.States.INITIAL], States.Initial)
+        assertEquals(states[Factories.States.LOADING], States.Loading)
+        assertTrue(states[Factories.States.FAILURE] is States.Failure)
         form.state.value.let {
             it as States.Failure
             assertEquals(it.data, MessagesValues.INVALID_NAME.message)
@@ -72,9 +72,9 @@ internal class NameFormStateTest {
 
         form.set("Ga", FormState.Type.Name)
 
-        assertEquals(states[Factories.INITIAL], States.Initial)
-        assertEquals(states[Factories.LOADING], States.Loading)
-        assertTrue(states[Factories.FAILURE] is States.Failure)
+        assertEquals(states[Factories.States.INITIAL], States.Initial)
+        assertEquals(states[Factories.States.LOADING], States.Loading)
+        assertTrue(states[Factories.States.FAILURE] is States.Failure)
         form.state.value.let {
             it as States.Failure
             assertEquals(it.data, MessagesValues.INVALID_NAME.message)

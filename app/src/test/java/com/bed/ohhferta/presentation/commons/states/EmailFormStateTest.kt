@@ -38,9 +38,9 @@ internal class EmailFormStateTest {
 
         form.set("email@email.com", FormState.Type.Email)
 
-        assertEquals(states[Factories.INITIAL], States.Initial)
-        assertEquals(states[Factories.LOADING], States.Loading)
-        assertTrue(states[Factories.SUCCESS] is States.Success)
+        assertEquals(states[Factories.States.INITIAL], States.Initial)
+        assertEquals(states[Factories.States.LOADING], States.Loading)
+        assertTrue(states[Factories.States.SUCCESS] is States.Success)
         form.state.value.let {
             it as States.Success
             assertEquals(it.data, "email@email.com")
@@ -55,9 +55,9 @@ internal class EmailFormStateTest {
 
         form.set("", FormState.Type.Email)
 
-        assertEquals(states[Factories.INITIAL], States.Initial)
-        assertEquals(states[Factories.LOADING], States.Loading)
-        assertTrue(states[Factories.FAILURE] is States.Failure)
+        assertEquals(states[Factories.States.INITIAL], States.Initial)
+        assertEquals(states[Factories.States.LOADING], States.Loading)
+        assertTrue(states[Factories.States.FAILURE] is States.Failure)
         form.state.value.let {
             it as States.Failure
             assertEquals(it.data, MessagesValues.INVALID_EMAIL.message)
@@ -72,9 +72,9 @@ internal class EmailFormStateTest {
 
         form.set("email@email.c", FormState.Type.Email)
 
-        assertEquals(states[Factories.INITIAL], States.Initial)
-        assertEquals(states[Factories.LOADING], States.Loading)
-        assertTrue(states[Factories.FAILURE] is States.Failure)
+        assertEquals(states[Factories.States.INITIAL], States.Initial)
+        assertEquals(states[Factories.States.LOADING], States.Loading)
+        assertTrue(states[Factories.States.FAILURE] is States.Failure)
         form.state.value.let {
             it as States.Failure
             assertEquals(it.data, MessagesValues.INVALID_EMAIL.message)
