@@ -22,8 +22,8 @@ import androidx.navigation.compose.rememberNavController
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 
 import com.bed.ohhferta.presentation.themes.OhhFertaTheme
-import com.bed.ohhferta.presentation.navigation.home.HomeRoutes
-import com.bed.ohhferta.presentation.navigation.NavigationWidget
+import com.bed.ohhferta.presentation.screens.routes.Routes
+import com.bed.ohhferta.presentation.screens.routes.NavigationWidget
 
 class MainActivity : ComponentActivity() {
 
@@ -57,7 +57,7 @@ class MainActivity : ComponentActivity() {
         ) {
             NavigationWidget(
                 navController = navController,
-                startDestination = HomeRoutes.HOME_GRAPH
+                startDestination = Routes.Splash.GRAPH
             )
         }
     }
