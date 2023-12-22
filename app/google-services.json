@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "222309761667",
+    "project_id": "ohh-ferta-1908d",
+    "storage_bucket": "ohh-ferta-1908d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:222309761667:android:e0c56921f4813bf0da51b6",
+        "android_client_info": {
+          "package_name": "com.bed.ohhferta"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAa-3mIAYARXLekEeb0dN3NnNsWxn2pMs8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:222309761667:android:ceb49f9e05928afbda51b6",
+        "android_client_info": {
+          "package_name": "com.bed.ohhferta.debug"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAa-3mIAYARXLekEeb0dN3NnNsWxn2pMs8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:222309761667:android:8507ac2b72d3067dda51b6",
+        "android_client_info": {
+          "package_name": "com.bed.ohhferta.profile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAa-3mIAYARXLekEeb0dN3NnNsWxn2pMs8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
