@@ -1,4 +1,28 @@
 <resources>
     <string name="app_name">Ohh Ferta</string>
     <string name="app_icon_description">Ícone da aplicação, um megafone.</string>
+
+    <!-- SIGN IN -->
+    <string name="sign_in_title">Bem vindo!</string>
+    <string name="sign_in_title_button">Entrar</string>
+    <string name="sign_in_title_check_box">Lembrar de mim</string>
+    <string name="sign_in_title_recover_password_button">Recuperar conta</string>
+    <string name="sign_in_description_create_account">Não possui uma conta?</string>
+    <string name="sign_in_sub_title">Olá.\nAcesse sua conta e divulge seus produtos</string>
+
+    <!-- SIGN IN, SIGN UP, RECOVER and RESET -->
+    <string name="valid_password">Senha válida.</string>
+    <string name="valid_email">E-mail %s válido.</string>
+    <string name="title_email_text_input">E-mail</string>
+    <string name="title_password_text_input">Senha</string>
+    <string name="title_create_account">Criar conta</string>
+    <string name="title_create_account_button">Criar</string>
+    <string name="failure_name_message">Nome inválido.</string>
+    <string name="failure_email_message">E-mail inválido.</string>
+    <string name="failure_password_message">Senha inválida.</string>
+    <string name="placeholder_email_text_input">Seu melhor e-mail</string>
+    <string name="placeholder_password_text_input">Uma senha segura</string>
+    <string name="description_password_visible_icon">Ícone para mostrar a senha.</string>
+    <string name="description_password_invisible_icon">Ícone para ocultar a senha.</string>
+
 </resources>
