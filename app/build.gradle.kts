@@ -2,10 +2,7 @@
 plugins {
     alias(libs.plugins.serialization)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.google.service)
     alias(libs.plugins.application.android)
-    alias(libs.plugins.ksp)
-    alias(libs.plugins.hilt)
     alias(libs.plugins.detekt)
 }
 
@@ -20,11 +17,14 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("Boolean", "IS_DEBUG", "true")
     }
 
     buildTypes {
@@ -58,6 +58,7 @@ android {
 
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 
     kotlinOptions {
@@ -83,19 +84,12 @@ android {
 dependencies {
     implementation(project(":core"))
 
-    ksp(libs.hilt.compiler)
-    implementation(libs.bundles.hilt)
-
+    implementation(libs.bundles.app)
     implementation(libs.bundles.ktx)
-    implementation(libs.bundles.others)
+    implementation(libs.bundles.ktor)
     implementation(libs.bundles.compose)
 
-    implementation(platform(libs.firebase.bom))
-    implementation(libs.bundles.firbase)
-
     detektPlugins(libs.detekt)
-
-    kspAndroidTest(libs.hilt.compiler)
 
     testImplementation(project(":test"))
 

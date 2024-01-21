@@ -1,7 +1,5 @@
 package com.bed.core.usecases.coroutines
 
-import javax.inject.Inject
-
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.CoroutineDispatcher
 
@@ -12,4 +10,4 @@ interface CoroutinesUseCase {
     fun unconfined(): CoroutineDispatcher = Dispatchers.Unconfined
 }
 
-class CoroutinesUseCaseImpl @Inject constructor() : CoroutinesUseCase
+class CoroutinesUseCaseImpl : CoroutinesUseCase

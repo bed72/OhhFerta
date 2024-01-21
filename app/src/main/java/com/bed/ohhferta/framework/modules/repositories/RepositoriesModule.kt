@@ -1,16 +1,13 @@
 package com.bed.ohhferta.framework.modules.repositories
 
-import dagger.Binds
-import dagger.Module
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
+import org.koin.dsl.bind
+import org.koin.dsl.module
+import org.koin.core.module.dsl.factoryOf
 
-import com.bed.core.data.repositories.AuthenticationRepository
-import com.bed.core.data.repositories.AuthenticationRepositoryImpl
+import com.bed.core.repositories.OffersRepository
 
-@Module
-@InstallIn(SingletonComponent::class)
-interface RepositoriesModule {
-    @Binds
-    fun bindAuthenticationRepository(repository: AuthenticationRepositoryImpl): AuthenticationRepository
+import com.bed.ohhferta.data.repositories.OffersRepositoryImpl
+
+val repositoriesModule = module {
+    factoryOf(::OffersRepositoryImpl) bind OffersRepository::class
 }

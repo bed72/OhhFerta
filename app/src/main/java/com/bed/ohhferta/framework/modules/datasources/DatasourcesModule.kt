@@ -1,18 +1,12 @@
 package com.bed.ohhferta.framework.modules.datasources
 
-import dagger.Binds
-import dagger.Module
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
+import org.koin.dsl.bind
+import org.koin.dsl.module
+import org.koin.core.module.dsl.factoryOf
 
-import com.bed.core.data.datasources.remote.RemoteAuthenticationDatasource
-import com.bed.ohhferta.datasources.remote.RemoteAuthenticationDatasourceImpl
+import com.bed.ohhferta.data.datasources.remote.RemoteOffersDataSource
+import com.bed.ohhferta.data.datasources.remote.RemoteOffersDataSourceImpl
 
-@Module
-@InstallIn(SingletonComponent::class)
-interface DatasourcesModule {
-    @Binds
-    fun bindAuthenticationDatasource(
-        datasource: RemoteAuthenticationDatasourceImpl
-    ): RemoteAuthenticationDatasource
+val dataSourcesModule = module {
+    factoryOf(::RemoteOffersDataSourceImpl) bind RemoteOffersDataSource::class
 }

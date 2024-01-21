@@ -1,19 +1,12 @@
 package com.bed.ohhferta.framework.modules.clients
 
-import javax.inject.Singleton
+import org.koin.dsl.bind
+import org.koin.dsl.module
+import org.koin.core.module.dsl.singleOf
 
-import dagger.Binds
-import dagger.Module
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
+import com.bed.ohhferta.framework.network.clients.HttpClient
+import com.bed.ohhferta.framework.network.clients.HttpClientImpl
 
-import com.bed.ohhferta.framework.network.clients.FirebaseClient
-import com.bed.ohhferta.framework.network.clients.FirebaseClientImpl
-
-@Module
-@InstallIn(SingletonComponent::class)
-interface ClientModule {
-    @Binds
-    @Singleton
-    fun bindFirebaseClient(client: FirebaseClientImpl): FirebaseClient
+fun clientsModule() = module {
+    singleOf(::HttpClientImpl) bind HttpClient::class
 }

@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="com.bed.ohhferta.debug" />
-                  <option name="mobileSdkAppId" value="1:222309761667:android:ceb49f9e05928afbda51b6" />
-                  <option name="projectId" value="ohh-ferta-1908d" />
-                  <option name="projectNumber" value="222309761667" />
+                  <option name="appId" value="PLACEHOLDER" />
+                  <option name="mobileSdkAppId" value="" />
+                  <option name="projectId" value="" />
+                  <option name="projectNumber" value="" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
