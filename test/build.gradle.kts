@@ -10,5 +10,5 @@ java {
 dependencies {
     implementation(project(":core"))
 
-    api(libs.bundles.test)
+    api(libs.bundles.test.module)
 }

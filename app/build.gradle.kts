@@ -84,10 +84,7 @@ android {
 dependencies {
     implementation(project(":core"))
 
-    implementation(libs.bundles.app)
-    implementation(libs.bundles.ktx)
-    implementation(libs.bundles.ktor)
-    implementation(libs.bundles.compose)
+    implementation(libs.bundles.app.module)
 
     detektPlugins(libs.detekt)
 

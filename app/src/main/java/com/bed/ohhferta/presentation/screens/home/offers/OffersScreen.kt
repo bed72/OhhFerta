@@ -2,6 +2,10 @@ package com.bed.ohhferta.presentation.screens.home.offers
 
 import coil.compose.rememberAsyncImagePainter
 
+import cafe.adriel.voyager.core.screen.Screen
+
+import org.koin.androidx.compose.koinViewModel
+
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -40,93 +44,85 @@ import com.bed.core.domain.models.offers.OfferModel
 import com.bed.ohhferta.presentation.themes.OhhFertaTheme
 import com.bed.ohhferta.presentation.commons.states.States
 
-@Composable
-fun OffersScreen(
-    viewModel: OffersViewModel,
-    modifier: Modifier = Modifier
-) {
-    val state by viewModel.state.collectAsState()
+class OffersScreen(private val viewModel: OffersViewModel) : Screen {
+    @Composable
+    override fun Content() {
+        val state by viewModel.state.collectAsState()
 
-    Box(
-        modifier = modifier
-            .fillMaxSize()
-            .wrapContentSize(Alignment.Center)
-    ) {
-        when (state) {
-            States.Initial, States.Loading -> IsLoading(modifier)
-            is States.Failure -> IsFailure(modifier, (state as States.Failure).data)
-            is States.Success -> IsSuccessful(modifier, (state as States.Success<List<OfferModel>>).data)
-        }
-    }
-}
-
-@Composable
-private fun IsLoading(modifier: Modifier = Modifier) {
-    CircularProgressIndicator(modifier = modifier)
-}
-
-@Composable
-private fun IsFailure(modifier: Modifier = Modifier, message: String) {
-    Text(
-        text = message,
-        modifier = modifier,
-        style = MaterialTheme.typography.titleLarge
-    )
-}
-
-@Composable
-private fun IsSuccessful(modifier: Modifier = Modifier, offers: List<OfferModel>) {
-    LazyColumn(modifier = modifier
-        .padding(16.dp)
-        .fillMaxHeight()) {
-        items(
-            items = offers,
-            key = { it.id }
-        ) { offer ->
-            Card(
-                modifier = modifier,
-                offer = offer
-            )
-        }
-    }
-}
-
-@Composable
-private fun Card(modifier: Modifier = Modifier, offer: OfferModel) {
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-
-        Card(
-            modifier = modifier,
-            // shape = CutCornerShape(20.dp)
-            //border = BorderStroke(3.dp,Color.Gray)
-
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .wrapContentSize(Alignment.Center)
         ) {
-            Column(modifier = Modifier
-                .padding(bottom = 8.dp)
-                .fillMaxSize()) {
-                Image(
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier.height(128.dp).fillMaxWidth(),
-                    painter = rememberAsyncImagePainter(model = offer.getThumb()),
-                    contentDescription = stringResource(id = R.string.image_offer_description, offer.name)
-                )
-                Text(
-                    text = offer.name,
-                    modifier = modifier.padding(horizontal = 8.dp),
-                    style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold)
-                )
-                Text(
-                    maxLines = 4,
-                    text = offer.description,
-                    overflow = TextOverflow.Ellipsis,
-                    style = MaterialTheme.typography.bodyMedium,
-                    modifier = modifier.padding(horizontal = 8.dp)
-                )
+            when (state) {
+                States.Initial, States.Loading -> IsLoading()
+                is States.Failure -> IsFailure((state as States.Failure).data)
+                is States.Success -> IsSuccessful((state as States.Success<List<OfferModel>>).data)
             }
+        }
+    }
 
+    @Composable
+    private fun IsLoading() {
+        CircularProgressIndicator()
+    }
+
+    @Composable
+    private fun IsFailure(message: String) {
+        Text(
+            text = message,
+            style = MaterialTheme.typography.titleLarge
+        )
+    }
+
+    @Composable
+    private fun IsSuccessful(offers: List<OfferModel>) {
+        LazyColumn(modifier = Modifier
+            .padding(16.dp)
+            .fillMaxHeight()) {
+            items(
+                items = offers,
+                key = { it.id }
+            ) { offer ->
+                Card(offer = offer)
+            }
+        }
+    }
+
+    @Composable
+    private fun Card(offer: OfferModel) {
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+
+            Card {
+                Column(modifier = Modifier
+                    .padding(bottom = 8.dp)
+                    .fillMaxSize()) {
+                    Image(
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier
+                            .height(128.dp)
+                            .fillMaxWidth(),
+                        painter = rememberAsyncImagePainter(model = offer.getThumb()),
+                        contentDescription = stringResource(id = R.string.image_offer_description, offer.name)
+                    )
+                    Text(
+                        text = offer.name,
+                        modifier = Modifier.padding(horizontal = 8.dp),
+                        style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold)
+                    )
+                    Text(
+                        maxLines = 4,
+                        text = offer.description,
+                        overflow = TextOverflow.Ellipsis,
+                        style = MaterialTheme.typography.bodyMedium,
+                        modifier = Modifier.padding(horizontal = 8.dp)
+                    )
+                }
+
+            }
         }
     }
 }

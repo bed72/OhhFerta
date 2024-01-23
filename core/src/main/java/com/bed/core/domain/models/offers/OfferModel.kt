@@ -2,6 +2,8 @@ package com.bed.core.domain.models.offers
 
 import java.time.LocalDate
 
+import com.bed.core.domain.models.paths.PathModel
+
 data class OfferModel(
     val id: String,
     val name: String,
@@ -15,4 +17,4 @@ data class OfferModel(
 )
 
 fun OfferModel.getThumb() =
-    "http://10.0.2.2:8090/api/files/$collectionName/$id/${images.first()}?thumb=0x300"
+    "${PathModel.API.value}/files/$collectionName/$id/${images.first()}?thumb=0x300"

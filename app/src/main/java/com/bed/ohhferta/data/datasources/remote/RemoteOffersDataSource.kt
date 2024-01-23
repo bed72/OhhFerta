@@ -6,7 +6,7 @@ import io.ktor.client.request.parameter
 
 import com.bed.ohhferta.data.datasources.alias.RemoteOffersType
 
-import com.bed.ohhferta.framework.network.Paths
+import com.bed.core.domain.models.paths.PathModel
 import com.bed.ohhferta.framework.network.clients.request
 import com.bed.ohhferta.framework.network.clients.HttpClient
 
@@ -22,10 +22,9 @@ class RemoteOffersDataSourceImpl(private val client: HttpClient) : RemoteOffersD
     override suspend fun getAll(vararg parameters: Pair<String, Any>?): RemoteOffersType =
         client.http.request<ClientExceptionResponse, PageResponse<OfferResponse>> {
             method = HttpMethod.Get
-            url(Paths.OFFERS.value)
+            url(PathModel.OFFERS.value)
             parameters.forEach {
                 if (it != null) parameter(it.first, it.second)
             }
-
         }
 }

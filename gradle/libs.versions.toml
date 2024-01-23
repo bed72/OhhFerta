@@ -7,9 +7,9 @@ arrow = "1.2.1"
 splash = "1.0.1"
 kotlin = "1.9.20"
 detekt = "1.23.4"
+voyager = "1.0.0"
 compiler = "1.5.5"
 material3 = "1.1.2"
-navigation = "2.7.6"
 okhttp = "5.0.0-alpha.12"
 kotlinx-coroutines = "1.7.3"
 
@@ -19,7 +19,6 @@ lifecycle-ktx = "2.7.0"
 
 # Compose
 ui-compose = "1.5.4"
-hilt-compose = "1.1.0"
 activity-compose = "1.8.2"
 bom-compose = "2023.10.01"
 
@@ -40,13 +39,13 @@ okhttp = { group = "com.squareup.okhttp3", name = "logging-interceptor", version
 detekt = { group = "io.gitlab.arturbosch.detekt", name = "detekt-formatting", version.ref = "detekt" }
 coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
 
-# AndroidX
+core = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
 splash = { group = "androidx.core", name = "core-splashscreen", version.ref = "splash" }
-navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
+lifecycle = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-ktx" }
 
-# Ktx
-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
-lifecycle-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-ktx" }
+# Navigator
+voyager-navigator = { group = "cafe.adriel.voyager", name = "voyager-navigator", version.ref = "voyager" }
+voyager-transitions = { group = "cafe.adriel.voyager", name = "voyager-transitions", version.ref = "voyager" }
 
 # Ktor
 ktor-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor" }
@@ -90,34 +89,35 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 
 [bundles]
-app = [
-    "coil",
-    "koin",
-    "splash",
-    "okhttp",
-    "navigation"
-]
-
-ktx = [
-    "core-ktx",
-    "lifecycle-ktx"
-]
-
-core = [
+core-module = [
     "arrow",
     "coroutines-core"
 ]
 
-ktor = [
+test-module = [
+    "junit",
+    "mockito",
+    "coroutines-test"
+]
+
+app-module = [
+    # Other
+    "coil",
+    "koin",
+    "core",
+    "splash",
+    "okhttp",
+    "lifecycle",
+    # Navigation
+    "voyager-navigator",
+    "voyager-transitions",
+    # Client HTTP
     "ktor-core",
     "ktor-okhttp",
     "ktor-logging",
     "ktor-negotiation",
-    "ktor-serialization"
-]
-
-
-compose = [
+    "ktor-serialization",
+    # Jetpack Compose
     "ui",
     "ui-icons",
     "ui-runtime",
@@ -128,12 +128,6 @@ compose = [
     "ui-foundation",
     "ui-tooling-preview",
     "ui-activity-compose"
-]
-
-test = [
-    "junit",
-    "mockito",
-    "coroutines-test"
 ]
 
 android-test = [

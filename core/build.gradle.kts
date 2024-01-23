@@ -8,7 +8,7 @@ java {
 }
 
 dependencies {
-    api(libs.bundles.core)
+    api(libs.bundles.core.module)
 
     testImplementation(project(":test"))
 }

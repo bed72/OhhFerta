@@ -36,7 +36,7 @@ import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.observer.ResponseObserver
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 
-import com.bed.ohhferta.framework.network.Paths
+import com.bed.core.domain.models.paths.PathModel
 
 interface HttpClient {
     val http: KtorClient
@@ -73,7 +73,7 @@ class HttpClientImpl : HttpClient {
 
     private fun HttpClientConfig<OkHttpConfig>.configureRequestDefault() {
         install(DefaultRequest) {
-            url(Paths.API.value)
+            url(PathModel.API.value)
             headers {
                 header(HttpHeaders.ContentType, ContentType.Application.Json)
 //                header("apikey", "")

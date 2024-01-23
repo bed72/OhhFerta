@@ -2,18 +2,18 @@ package com.bed.ohhferta.presentation
 
 import android.os.Bundle
 
+import cafe.adriel.voyager.navigator.Navigator
+
+import org.koin.androidx.viewmodel.ext.android.viewModel
+
 import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
-
 import androidx.compose.ui.Modifier
-import androidx.compose.material3.Surface
 import androidx.compose.ui.graphics.Color
-import androidx.compose.runtime.Composable
+import androidx.compose.material3.Surface
 import androidx.compose.foundation.background
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.foundation.layout.statusBarsPadding
@@ -21,12 +21,14 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 
+import com.bed.ohhferta.presentation.screens.home.offers.OffersScreen
+import com.bed.ohhferta.presentation.screens.home.offers.OffersViewModel
+
 import com.bed.ohhferta.presentation.themes.OhhFertaTheme
 
-import com.bed.ohhferta.presentation.screens.routes.Routes
-import com.bed.ohhferta.presentation.screens.routes.RouteWidget
-
 class MainActivity : ComponentActivity() {
+
+    private val viewModel: OffersViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,30 +42,16 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             OhhFertaTheme {
-                val navController = rememberNavController()
-
-                MainWidget(navController = navController)
+                Surface(
+                    color = MaterialTheme.colorScheme.background,
+                    modifier = Modifier
+                        .statusBarsPadding()
+                        .navigationBarsPadding()
+                        .background(MaterialTheme.colorScheme.background)
+                ) {
+                    Navigator(OffersScreen(viewModel))
+                }
             }
-        }
-    }
-
-
-    @Composable
-    private fun MainWidget(
-        modifier: Modifier = Modifier,
-        navController: NavHostController,
-    ) {
-        Surface(
-            color = MaterialTheme.colorScheme.background,
-            modifier = modifier
-                .statusBarsPadding()
-                .navigationBarsPadding()
-                .background(MaterialTheme.colorScheme.background)
-        ) {
-            RouteWidget(
-                navController = navController,
-                startDestination = Routes.Home.GRAPH
-            )
         }
     }
 }
