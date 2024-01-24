@@ -4,7 +4,6 @@ import coil.compose.rememberAsyncImagePainter
 
 import cafe.adriel.voyager.core.screen.Screen
 
-import org.koin.androidx.compose.koinViewModel
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.Composable
@@ -43,6 +42,7 @@ import com.bed.core.domain.models.offers.OfferModel
 
 import com.bed.ohhferta.presentation.themes.OhhFertaTheme
 import com.bed.ohhferta.presentation.commons.states.States
+import com.bed.ohhferta.presentation.componets.HtmlText
 
 class OffersScreen(private val viewModel: OffersViewModel) : Screen {
     @Composable
@@ -113,9 +113,9 @@ class OffersScreen(private val viewModel: OffersViewModel) : Screen {
                         modifier = Modifier.padding(horizontal = 8.dp),
                         style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold)
                     )
-                    Text(
-                        maxLines = 4,
-                        text = offer.description,
+                    HtmlText(
+                        offer.description,
+//                        maxLines = 8,
                         overflow = TextOverflow.Ellipsis,
                         style = MaterialTheme.typography.bodyMedium,
                         modifier = Modifier.padding(horizontal = 8.dp)
@@ -126,6 +126,8 @@ class OffersScreen(private val viewModel: OffersViewModel) : Screen {
         }
     }
 }
+
+
 
 @Preview(showBackground = true)
 @Composable

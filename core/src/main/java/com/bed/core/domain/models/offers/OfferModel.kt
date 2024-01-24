@@ -17,4 +17,4 @@ data class OfferModel(
 )
 
 fun OfferModel.getThumb() =
-    "${PathModel.API.value}/files/$collectionName/$id/${images.first()}?thumb=0x300"
+    "${PathModel.API.value}/api/files/$collectionName/$id/${images.first()}?thumb=0x300"
