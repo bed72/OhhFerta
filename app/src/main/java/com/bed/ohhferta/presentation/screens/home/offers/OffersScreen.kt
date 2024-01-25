@@ -34,6 +34,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
 
 import com.bed.ohhferta.R
 
@@ -42,7 +43,8 @@ import com.bed.core.domain.models.offers.OfferModel
 
 import com.bed.ohhferta.presentation.themes.OhhFertaTheme
 import com.bed.ohhferta.presentation.commons.states.States
-import com.bed.ohhferta.presentation.componets.HtmlText
+import de.charlex.compose.material3.HtmlText
+
 
 class OffersScreen(private val viewModel: OffersViewModel) : Screen {
     @Composable
@@ -89,6 +91,7 @@ class OffersScreen(private val viewModel: OffersViewModel) : Screen {
         }
     }
 
+    @OptIn(ExperimentalMaterial3Api::class)
     @Composable
     private fun Card(offer: OfferModel) {
         Box(
@@ -113,13 +116,19 @@ class OffersScreen(private val viewModel: OffersViewModel) : Screen {
                         modifier = Modifier.padding(horizontal = 8.dp),
                         style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.Bold)
                     )
+
                     HtmlText(
-                        offer.description,
-//                        maxLines = 8,
-                        overflow = TextOverflow.Ellipsis,
+                        text = offer.description,
+                        modifier = Modifier.padding(8.dp),
                         style = MaterialTheme.typography.bodyMedium,
-                        modifier = Modifier.padding(horizontal = 8.dp)
                     )
+//                    HtmlText(
+//                        offer.description,
+////                        maxLines = 8,
+//                        overflow = TextOverflow.Ellipsis,
+//                        style = MaterialTheme.typography.bodyMedium,
+//                        modifier = Modifier.padding(horizontal = 8.dp)
+//                    )
                 }
 
             }
