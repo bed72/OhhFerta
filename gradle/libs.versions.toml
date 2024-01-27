@@ -8,9 +8,10 @@ splash = "1.0.1"
 kotlin = "1.9.22"
 detekt = "1.23.4"
 compiler = "1.5.8"
+navigation = "2.7.6"
 html = "2.0.0-beta01"
-voyager = "1.0.0-rc10"
 okhttp = "5.0.0-alpha.12"
+material = "1.6.0-rc01"
 material3 = "1.2.0-beta02"
 kotlinx-coroutines = "1.7.3"
 
@@ -41,11 +42,8 @@ coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-
 
 core = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
 splash = { group = "androidx.core", name = "core-splashscreen", version.ref = "splash" }
+navigation = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
 lifecycle = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-ktx" }
-
-# Navigator
-voyager-navigator = { group = "cafe.adriel.voyager", name = "voyager-navigator", version.ref = "voyager" }
-voyager-transitions = { group = "cafe.adriel.voyager", name = "voyager-transitions", version.ref = "voyager" }
 
 # Ktor
 ktor-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor" }
@@ -59,6 +57,7 @@ ui = { group = "androidx.compose.ui", name = "ui", version.ref = "ui-compose" }
 ui-compose = { group = "androidx.compose", name = "compose-bom", version.ref = "bom-compose" }
 ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics", version.ref = "ui-compose" }
 ui-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "ui-compose" }
+ui-material = { group = "androidx.compose.material", name = "material", version.ref = "material" }
 ui-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "material3" }
 ui-animation = { group = "androidx.compose.animation", name = "animation", version.ref = "ui-compose" }
 ui-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "ui-compose" }
@@ -104,9 +103,7 @@ app-module = [
     "splash",
     "okhttp",
     "lifecycle",
-    # Navigation
-    "voyager-navigator",
-    "voyager-transitions",
+    'navigation',
     # Client HTTP
     "ktor-core",
     "ktor-okhttp",
@@ -119,6 +116,7 @@ app-module = [
     "ui-runtime",
     "ui-tooling",
     "ui-graphics",
+    "ui-material",
     "ui-material3",
     "ui-animation",
     "ui-foundation",

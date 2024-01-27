@@ -1,10 +1,9 @@
 package com.bed.ohhferta.presentation
 
 import android.os.Bundle
+import android.annotation.SuppressLint
 
-import cafe.adriel.voyager.navigator.Navigator
-
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import androidx.navigation.compose.rememberNavController
 
 import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
@@ -12,33 +11,34 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.material3.Surface
 import androidx.compose.foundation.background
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.ui.graphics.Color
 
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 
-import com.bed.ohhferta.presentation.screens.home.offers.OffersScreen
-import com.bed.ohhferta.presentation.screens.home.offers.OffersViewModel
-
 import com.bed.ohhferta.presentation.themes.OhhFertaTheme
 
+import com.bed.ohhferta.presentation.themes.darkBackground
+import com.bed.ohhferta.presentation.themes.lightBackground
+
+import com.bed.ohhferta.presentation.commons.routes.RootRoutes
+import com.bed.ohhferta.presentation.componets.RootRouteComponent
+
 class MainActivity : ComponentActivity() {
-
-    private val viewModel: OffersViewModel by viewModel()
-
+    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         installSplashScreen()
 
-        enableEdgeToEdge(
-            statusBarStyle = SystemBarStyle.auto(Color.Transparent.hashCode(), Color.Transparent.hashCode()),
-            navigationBarStyle = SystemBarStyle.auto(Color.Transparent.hashCode(), Color.Transparent.hashCode())
-        )
+//        enableEdgeToEdge(
+//            statusBarStyle = SystemBarStyle.auto(lightBackground.hashCode(), darkBackground.hashCode()),
+//            navigationBarStyle = SystemBarStyle.auto(lightBackground.hashCode(), darkBackground.hashCode())
+//        )
 
         setContent {
             OhhFertaTheme {
@@ -49,7 +49,10 @@ class MainActivity : ComponentActivity() {
                         .navigationBarsPadding()
                         .background(MaterialTheme.colorScheme.background)
                 ) {
-                    Navigator(OffersScreen(viewModel))
+                    RootRouteComponent(
+                        navController = rememberNavController(),
+                        startDestination = RootRoutes.Home.GRAPH
+                    )
                 }
             }
         }

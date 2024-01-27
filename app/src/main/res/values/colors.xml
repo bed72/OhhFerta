@@ -9,7 +9,7 @@
     <color name="light_tertiary">#3C6472</color>
     <color name="light_onSurface">#191C1A</color>
     <color name="light_secondary">#4E6356</color>
-    <color name="light_background">#FBFDF8</color>
+    <color name="light_background">#F3FAF7</color>
     <color name="light_shadow">@color/black</color>
     <color name="light_surfaceTint">#006C46</color>
     <color name="light_onError">@color/white</color>
@@ -42,7 +42,7 @@
     <color name="dark_onPrimary">#003822</color>
     <color name="dark_onSurface">#E1E3DF</color>
     <color name="dark_secondary">#B4CCBC</color>
-    <color name="dark_background">#191C1A</color>
+    <color name="dark_background">#0E1513</color>
     <color name="dark_onTertiary">#053542</color>
     <color name="dark_surfaceTint">#72DAA5</color>
     <color name="dark_shadow">@color/black</color>

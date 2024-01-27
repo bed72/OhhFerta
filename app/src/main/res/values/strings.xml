@@ -2,6 +2,10 @@
     <string name="app_name">Ohh Ferta</string>
     <string name="app_icon_description">Ícone da aplicação, um megafone.</string>
 
+    <!-- HOME -->
+    <string name="offers_title_tab">Ofertas</string>
+    <string name="stores_title_tab">Lojas</string>
+    <string name="favorites_title_tab">Favoritos</string>
 
     <string name="image_offer_description">Image do produto %s.</string>
 

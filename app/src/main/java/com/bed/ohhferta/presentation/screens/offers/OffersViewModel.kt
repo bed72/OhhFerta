@@ -1,4 +1,4 @@
-package com.bed.ohhferta.presentation.screens.home.offers
+package com.bed.ohhferta.presentation.screens.offers
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

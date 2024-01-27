@@ -5,7 +5,12 @@
     <style
         name="Theme.OhhFerta"
         parent="android:Theme.Material.Light.NoActionBar" >
-        <item name="android:colorBackground">@color/dark_background</item>
+
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:statusBarColor">@color/dark_background</item>
+        <item name="android:navigationBarColor">@color/dark_background</item>
+
     </style>
 
     <!-- Splash -->
@@ -14,4 +19,5 @@
         <item name="windowSplashScreenBackground">@color/dark_background</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
     </style>
+
 </resources>

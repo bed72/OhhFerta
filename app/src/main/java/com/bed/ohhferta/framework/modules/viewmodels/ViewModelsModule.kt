@@ -4,7 +4,7 @@ import org.koin.dsl.module
 
 import org.koin.androidx.viewmodel.dsl.viewModelOf
 
-import com.bed.ohhferta.presentation.screens.home.offers.OffersViewModel
+import com.bed.ohhferta.presentation.screens.offers.OffersViewModel
 
 val viewModelsModule = module {
     viewModelOf(::OffersViewModel)
