@@ -1,18 +1,18 @@
 [versions]
 agp = "8.2.2"
 koin = "3.5.3"
-ktor = "2.3.7"
+ktor = "2.3.8"
 coil = "2.5.0"
 arrow = "1.2.1"
 splash = "1.0.1"
 kotlin = "1.9.22"
-detekt = "1.23.4"
+detekt = "1.23.5"
 compiler = "1.5.8"
 navigation = "2.7.6"
 html = "2.0.0-beta01"
 okhttp = "5.0.0-alpha.12"
-material = "1.6.0-rc01"
-material3 = "1.2.0-beta02"
+material = "1.6.0"
+material3 = "1.2.0-rc01"
 kotlinx-coroutines = "1.7.3"
 
 # Ktx
@@ -22,7 +22,7 @@ lifecycle-ktx = "2.7.0"
 # Compose
 ui-compose = "1.6.0"
 activity-compose = "1.8.2"
-bom-compose = "2023.10.01"
+bom-compose = "2024.01.00"
 
 # Test
 junit = "4.13.2"
