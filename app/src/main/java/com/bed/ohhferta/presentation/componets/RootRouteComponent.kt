@@ -2,6 +2,7 @@ package com.bed.ohhferta.presentation.componets
 
 import androidx.annotation.StringRes
 import android.annotation.SuppressLint
+import androidx.compose.foundation.interaction.Interaction
 import androidx.compose.foundation.interaction.MutableInteractionSource
 
 import androidx.compose.runtime.getValue
@@ -24,7 +25,6 @@ import androidx.compose.material.icons.filled.Campaign
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Storefront
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.runtime.remember
 import androidx.compose.ui.unit.dp
 
 import androidx.navigation.navigation
@@ -40,6 +40,8 @@ import com.bed.ohhferta.presentation.commons.routes.RootRoutes
 import com.bed.ohhferta.presentation.screens.offers.offersScreen
 import com.bed.ohhferta.presentation.screens.stores.storesScreen
 import com.bed.ohhferta.presentation.screens.favorites.favoritesScreen
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.emptyFlow
 
 @Composable
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -86,10 +88,12 @@ fun BottomNavigationBarComponent(navController: NavController) {
 
         items.forEach { screen ->
             BottomNavigationItem(
+                alwaysShowLabel = false,
                 selected = currentRoute == screen.route,
-                label = { Text(text = stringResource(screen.label)) },
+                interactionSource = NoRippleInteractionSource,
                 icon = { Icon(screen.icon, contentDescription = null) },
-                interactionSource = remember { MutableInteractionSource() },
+
+                label = { Text(text = stringResource(screen.label), style = MaterialTheme.typography.bodySmall) },
                 onClick = {
                     navController.navigate(screen.route) {
                         popUpTo(navController.graph.startDestinationId) {
@@ -102,4 +106,11 @@ fun BottomNavigationBarComponent(navController: NavController) {
             )
         }
     }
+}
+
+private object NoRippleInteractionSource : MutableInteractionSource {
+    override fun tryEmit(interaction: Interaction) = true
+
+    override val interactions: Flow<Interaction> = emptyFlow()
+    override suspend fun emit(interaction: Interaction) = Unit
 }

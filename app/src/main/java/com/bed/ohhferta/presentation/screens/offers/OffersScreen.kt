@@ -71,9 +71,10 @@ private fun IsFailure(message: String) {
 
 @Composable
 private fun IsSuccessful(offers: List<OfferModel>) {
-    LazyColumn(modifier = Modifier
-        .padding(16.dp)
-        .fillMaxHeight()) {
+    LazyColumn(
+        modifier = Modifier
+            .padding(16.dp)
+            .fillMaxHeight()) {
         items(
             items = offers,
             key = { it.id }
@@ -86,10 +87,9 @@ private fun IsSuccessful(offers: List<OfferModel>) {
 @Composable
 private fun Card(offer: OfferModel) {
     Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
+        modifier = Modifier.padding(bottom = 16.dp).fillMaxSize()
     ) {
-
         Card {
             Column(modifier = Modifier
                 .padding(bottom = 8.dp)
