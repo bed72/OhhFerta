@@ -31,6 +31,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.Text
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.ui.text.style.TextOverflow
 
 import com.bed.ohhferta.R
 
@@ -109,7 +110,9 @@ private fun Card(offer: OfferModel) {
                 )
 
                 HtmlText(
+                    maxLines = 6,
                     text = offer.description,
+                    overflow = TextOverflow.Ellipsis,
                     modifier = Modifier.padding(8.dp),
                     style = MaterialTheme.typography.bodyMedium,
                 )

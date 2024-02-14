@@ -21,8 +21,12 @@ import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccessTime
 import androidx.compose.material.icons.filled.Campaign
+import androidx.compose.material.icons.filled.Celebration
 import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.FavoriteBorder
+import androidx.compose.material.icons.filled.ShoppingBasket
 import androidx.compose.material.icons.filled.Storefront
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.unit.dp
@@ -68,11 +72,11 @@ fun RootRouteComponent(navController: NavHostController, startDestination: Strin
 
 sealed class Screen(val route: String, val icon: ImageVector, @StringRes val label: Int) {
     data object Offers :
-        Screen(RootRoutes.Home.OFFERS_SCREEN, Icons.Default.Campaign, R.string.offers_title_tab)
+        Screen(RootRoutes.Home.OFFERS_SCREEN, Icons.Filled.AccessTime, R.string.offers_title_tab)
     data object Stores :
-        Screen(RootRoutes.Home.STORES_SCREEN, Icons.Default.Storefront, R.string.stores_title_tab)
+        Screen(RootRoutes.Home.STORES_SCREEN, Icons.Filled.Storefront, R.string.stores_title_tab)
     data object Favorites :
-        Screen(RootRoutes.Home.FAVORITES_SCREEN, Icons.Default.Favorite, R.string.favorites_title_tab)
+        Screen(RootRoutes.Home.FAVORITES_SCREEN, Icons.Filled.FavoriteBorder, R.string.favorites_title_tab)
 }
 
 @Composable
@@ -89,6 +93,7 @@ fun BottomNavigationBarComponent(navController: NavController) {
         items.forEach { screen ->
             BottomNavigationItem(
                 alwaysShowLabel = false,
+
                 selected = currentRoute == screen.route,
                 interactionSource = NoRippleInteractionSource,
                 icon = { Icon(screen.icon, contentDescription = null) },
