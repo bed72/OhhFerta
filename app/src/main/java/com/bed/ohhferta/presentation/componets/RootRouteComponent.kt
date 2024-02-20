@@ -1,41 +1,37 @@
 package com.bed.ohhferta.presentation.componets
 
-import androidx.annotation.StringRes
-import android.annotation.SuppressLint
-import androidx.compose.foundation.interaction.Interaction
-import androidx.compose.foundation.interaction.MutableInteractionSource
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.emptyFlow
 
-import androidx.compose.runtime.getValue
+import androidx.annotation.StringRes
+
+import android.annotation.SuppressLint
 import androidx.compose.runtime.Composable
 
-import androidx.compose.material3.Icon
-import androidx.compose.material3.Text
-import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.getValue
 
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.graphics.vector.ImageVector
 
-//noinspection UsingMaterialAndMaterial3Libraries
-import androidx.compose.material.BottomNavigation
-//noinspection UsingMaterialAndMaterial3Libraries
-import androidx.compose.material.BottomNavigationItem
-
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccessTime
-import androidx.compose.material.icons.filled.Campaign
-import androidx.compose.material.icons.filled.Celebration
-import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.FavoriteBorder
-import androidx.compose.material.icons.filled.ShoppingBasket
-import androidx.compose.material.icons.filled.Storefront
+import androidx.compose.material3.Text
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.ui.unit.dp
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material.icons.filled.Storefront
+import androidx.compose.material.icons.filled.AccessTime
+import androidx.compose.material.icons.filled.FavoriteBorder
 
 import androidx.navigation.navigation
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
+
+import androidx.compose.foundation.interaction.Interaction
+import androidx.compose.foundation.interaction.MutableInteractionSource
 
 import com.bed.ohhferta.R
 
@@ -44,8 +40,6 @@ import com.bed.ohhferta.presentation.commons.routes.RootRoutes
 import com.bed.ohhferta.presentation.screens.offers.offersScreen
 import com.bed.ohhferta.presentation.screens.stores.storesScreen
 import com.bed.ohhferta.presentation.screens.favorites.favoritesScreen
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.emptyFlow
 
 @Composable
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -83,15 +77,12 @@ sealed class Screen(val route: String, val icon: ImageVector, @StringRes val lab
 fun BottomNavigationBarComponent(navController: NavController) {
     val items = listOf(Screen.Offers, Screen.Stores, Screen.Favorites)
 
-    BottomNavigation(
-        elevation = 0.dp,
-        backgroundColor = MaterialTheme.colorScheme.background
-    ) {
+    NavigationBar {
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentRoute = navBackStackEntry?.destination?.route
 
         items.forEach { screen ->
-            BottomNavigationItem(
+            NavigationBarItem(
                 alwaysShowLabel = false,
 
                 selected = currentRoute == screen.route,

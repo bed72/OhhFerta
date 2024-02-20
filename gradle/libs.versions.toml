@@ -8,12 +8,11 @@ splash = "1.0.1"
 kotlin = "1.9.22"
 detekt = "1.23.5"
 compiler = "1.5.8"
+material3 = "1.2.0"
 navigation = "2.7.7"
 html = "2.0.0-beta01"
 okhttp = "5.0.0-alpha.12"
-material = "1.6.1"
-material3 = "1.2.0"
-kotlinx-coroutines = "1.7.3"
+kotlinx-coroutines = "1.8.0"
 
 # Ktx
 core-ktx = "1.12.0"
@@ -21,8 +20,8 @@ lifecycle-ktx = "2.7.0"
 
 # Compose
 ui-compose = "1.6.1"
-activity-compose = "1.8.2"
 bom-compose = "2024.02.00"
+activity-compose = "1.8.2"
 
 # Test
 junit = "4.13.2"
@@ -57,7 +56,6 @@ ui = { group = "androidx.compose.ui", name = "ui", version.ref = "ui-compose" }
 ui-compose = { group = "androidx.compose", name = "compose-bom", version.ref = "bom-compose" }
 ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics", version.ref = "ui-compose" }
 ui-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "ui-compose" }
-ui-material = { group = "androidx.compose.material", name = "material", version.ref = "material" }
 ui-material3 = { group = "androidx.compose.material3", name = "material3", version.ref = "material3" }
 ui-animation = { group = "androidx.compose.animation", name = "animation", version.ref = "ui-compose" }
 ui-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "ui-compose" }
@@ -103,7 +101,7 @@ app-module = [
     "splash",
     "okhttp",
     "lifecycle",
-    'navigation',
+    "navigation",
     # Client HTTP
     "ktor-core",
     "ktor-okhttp",
@@ -116,7 +114,6 @@ app-module = [
     "ui-runtime",
     "ui-tooling",
     "ui-graphics",
-    "ui-material",
     "ui-material3",
     "ui-animation",
     "ui-foundation",
